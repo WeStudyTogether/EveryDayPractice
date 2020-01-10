@@ -32,7 +32,7 @@ public class LeetCode1 {
             System.out.println(a[i]);
         }
         
-//        int[] arrays = new int[5];  //定义并开辟了一个长度为3的数组
+//        int[] arrays = new int[5];  //定义并开辟了一个长度为5的数组
 //        // 可以将上面代码分成两句来写
 ////       int[] array = null;  // 声明一个长度int[]类型的变量，变量会占用一块内存空间，它没有分配初始值。
 ////       array = new int[5];  //创建一个长度为5的数组，将数组的地址赋给变量arrays。       
