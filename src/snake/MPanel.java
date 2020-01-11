@@ -73,13 +73,13 @@ public class MPanel extends JPanel implements KeyListener, ActionListener {
             title = new ImageIcon(ImageIO.read(is));
             is = this.getClass().getClassLoader().getResourceAsStream("images/body.png");
             body = new ImageIcon(ImageIO.read(is));
-            is = this.getClass().getClassLoader().getResourceAsStream("images/up.png");
+            is = this.getClass().getClassLoader().getResourceAsStream("images/head.jpg");
             up = new ImageIcon(ImageIO.read(is));
-            is = this.getClass().getClassLoader().getResourceAsStream("images/down.png");
+            is = this.getClass().getClassLoader().getResourceAsStream("images/head.jpg");
             down = new ImageIcon(ImageIO.read(is));
-            is = this.getClass().getClassLoader().getResourceAsStream("images/left.png");
+            is = this.getClass().getClassLoader().getResourceAsStream("images/head.jpg");
             left = new ImageIcon(ImageIO.read(is));
-            is = this.getClass().getClassLoader().getResourceAsStream("images/right.png");
+            is = this.getClass().getClassLoader().getResourceAsStream("images/head.jpg");
             right = new ImageIcon(ImageIO.read(is));
             is = this.getClass().getClassLoader().getResourceAsStream("images/food.png");
             food = new ImageIcon(ImageIO.read(is));
