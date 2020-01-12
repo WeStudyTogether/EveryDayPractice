@@ -45,7 +45,7 @@ public class lxc0111 {
         }
     }
 public static void main(String[] args) {
-    String s ="abacddcaba";
+    String s ="aabaa";
     String a = deleteSame(s);
     System.out.println(a);
 }
