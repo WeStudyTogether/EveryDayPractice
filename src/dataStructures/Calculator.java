@@ -10,7 +10,7 @@ package dataStructures;
 public class Calculator {
 
     public static void main(String[] args) {
-        String string = "7+2*6-4";
+        String string = "70+2*6-40";
         ArrayStack2 num = new ArrayStack2(10);
         ArrayStack2 oper = new ArrayStack2(10);
         int index = 0;
@@ -19,6 +19,7 @@ public class Calculator {
         int res = 0;
         int ope = 0;
         char ch = ' ';
+        String KeepNum = "";// 多位数
 
         while (true) {
             ch = string.substring(index, index + 1).charAt(0);
@@ -39,16 +40,24 @@ public class Calculator {
                 }
 
             } else {
-                num.push(ch - 48);
+                KeepNum += ch;
+                if (index == string.length() - 1) {
+                    num.push(Integer.parseInt(KeepNum));
+                } else {
+                    if (num.isOper(string.subSequence(index + 1, index + 2).charAt(0))) {
+                        num.push(Integer.parseInt(KeepNum));
+                        KeepNum = "";
+                    }
+                }
             }
             index++;
-            if(index>=string.length()) {
+            if (index >= string.length()) {
                 break;
             }
         }
-        
-        while(true) {
-            if(oper.isEmpty()) {
+
+        while (true) {
+            if (oper.isEmpty()) {
                 break;
             }
             num1 = num.pop();
