@@ -14,9 +14,9 @@ import java.util.Date;
 public class SelectSort {
     public static void main(String[] args) {
 
-        int[] arr =new  int[80000];
+        int[] arr =new  int[800];
         for(int i = 0; i<80000;i++) {
-            arr[i] = (int) (Math.random() * 100000);            
+            arr[i] = (int) (Math.random() * 1000);            
         }
         Date date = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
