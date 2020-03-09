@@ -13,7 +13,7 @@ public class RadixSort {
 
     public static void main(String[] args) {
         // TODO Auto-generated method stub
-        int arr[] = { 53, 3, 542, 748, 14, 214 };
+        int arr[] = { 53, 3, 542, 748, 14, 214,2,6 };
         radixSort(arr);
         System.out.println(Arrays.toString(arr));
     }
@@ -32,7 +32,7 @@ public class RadixSort {
             }
         }
         int maxlength = (max + "").length();
-        for (int i = 1; i < maxlength; i++) {
+        for (int i = 0; i < maxlength; i++) {
             for (int j = 0; j < arr.length; j++) {
                 int digitOfElement = (int) (arr[j] / Math.pow(10, i)% 10);
                 bucket[digitOfElement][bucketElementCount[digitOfElement]] = arr[j];
