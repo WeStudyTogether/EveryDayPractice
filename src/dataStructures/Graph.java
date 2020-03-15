@@ -2,6 +2,7 @@ package dataStructures;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 
 /**
  * @author Guangyao Gou
@@ -29,6 +30,8 @@ public class Graph {
         graph.insertEdges(1, 3, 1);
         graph.insertEdges(1, 4, 1);
         graph.showGraph();
+        graph.dfs();
+        graph.bfs();
     }
 
     public void showGraph() {
@@ -41,23 +44,80 @@ public class Graph {
         edges = new int[n][n];
         vertexList = new ArrayList<String>(n);
         numOfEdges = 0;
-        isVisited = new boolean[5];
+
     }
 
     public int getFirstNeighbor(int index) {
-        for(int j = 0; j< vertexList.size();j++) {
-            if(edges[index][j] > 0) {
+        for (int j = 0; j < vertexList.size(); j++) {
+            if (edges[index][j] > 0) {
                 return j;
             }
         }
-        return -1; 
+        return -1;
     }
-    
-    public int getNextNeighbor(int v1; int v2) {
-        
+
+    public int getNextNeighbor(int v1, int v2) {
+        for (int j = v2 + 1; j < vertexList.size(); j++) {
+            if (edges[v1][j] > 0) {
+                return j;
+            }
+        }
+        return -1;
     }
-    
-    
+
+    public void dfs(boolean[] isVisited, int i) {
+        System.out.print(getValueByIndex(i));
+        isVisited[i] = true;
+        int w = getFirstNeighbor(i);
+        while (w != -1) {
+            if (!isVisited[w]) {
+                dfs(isVisited, w);
+            }
+            w = getNextNeighbor(i, w);
+        }
+    }
+
+    public void dfs() {
+        isVisited = new boolean[5];
+        for (int j = 0; j < vertexList.size(); j++) {
+            if (!isVisited[j]) {
+                dfs(isVisited, j);
+            }
+        }
+    }
+
+    private void bfs(boolean[] isVisited, int i) {
+        int u;
+        int w;
+        LinkedList queue = new LinkedList();
+        System.out.print(getValueByIndex(i));
+        isVisited[i] = true;
+        queue.add(i);
+
+        while (!queue.isEmpty()) {
+            u = (Integer) queue.remove();
+            w = getFirstNeighbor(u);
+            while (w != -1) {
+                if (!isVisited[w]) {
+                    System.out.print(getValueByIndex(w));
+                    isVisited[w] = true;
+                    queue.add(w);
+                }
+                w = getNextNeighbor(u, w);
+            }
+
+        }
+    }
+
+    private void bfs() {
+        isVisited = new boolean[5];
+        for (int j = 0; j < getNumOfVertex(); j++) {
+            if (!isVisited[j]) {
+                bfs(isVisited, j);
+            }
+        }
+    }
+
     public int getNumOfVertex() {
         return vertexList.size();
     }
