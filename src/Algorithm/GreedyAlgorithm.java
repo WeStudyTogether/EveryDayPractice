@@ -63,7 +63,8 @@ public class GreedyAlgorithm {
                 HashSet<String> areas = broadcasts.get(key);
                 areas.retainAll(a);
                 
-                if (areas.size() > 0 && (maxKey == null || areas.size() > broadcasts.get(maxKey).size())) {
+                if (areas.size() > 0 && (maxKey == null 
+                        || areas.size() > broadcasts.get(maxKey).size())) {
                             maxKey = key;
                 }
 //                HashSet<String> maxareas = broadcasts.get(maxKey);
